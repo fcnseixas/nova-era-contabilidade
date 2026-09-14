@@ -186,13 +186,14 @@ p{margin:0}
 .row-t{min-width:0}
 .row-t b{display:block;font-family:"Sora",sans-serif;font-size:14.5px;font-weight:400}
 .row-t small{color:var(--text-3);font-size:12.5px}
-.tag{margin-left:auto;flex:none;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);color:var(--text-2)}
+.tag{margin-left:auto;flex:none;display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);color:var(--text-2);white-space:nowrap}
 .tag.ok{border-color:var(--gold-line);color:var(--gold-ink)}
 .check{width:16px;height:16px;flex:none;border-radius:999px;border:1px solid var(--gold-line);display:grid;place-items:center;color:var(--gold)}
 .check svg{width:9px;height:9px}
-.panel-foot{display:flex;align-items:baseline;gap:10px;padding:18px 20px;background:var(--bg-sunk)}
-.panel-foot .num{font-size:30px}
-.panel-foot small{color:var(--text-3);font-size:13px}
+.panel-foot{display:flex;align-items:baseline;gap:12px;padding:18px 20px;background:var(--bg-sunk)}
+.panel-foot .num{font-size:30px;flex:none}
+.panel-foot small{color:var(--text-3);font-size:13px;line-height:1.45}
+.panel-cap{margin-top:14px;font-size:13.2px;color:var(--text-3);text-align:center;max-width:42ch;margin-left:auto;margin-right:auto}
 
 /* ============ faixa de números ============ */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
@@ -340,6 +341,9 @@ footer{padding:56px 0 40px;font-size:14px;color:var(--text-3)}
   .flow{grid-template-columns:1fr;gap:30px}
   .quotes{columns:1}
   .hero{padding:52px 0 66px}
+  .row{flex-wrap:wrap;gap:10px 12px}
+  .tag{margin-left:42px;font-size:11.5px}
+  .panel-foot{flex-direction:column;gap:4px}
   .panel-foot .num{font-size:26px}
   details .ans{padding-right:0}
 }
@@ -416,35 +420,39 @@ footer{padding:56px 0 40px;font-size:14px;color:var(--text-3)}
       </div>
     </div>
 
-    <div class="panel rise d4" aria-label="Exemplo do painel mensal de um cliente">
+    <div class="panel-holder rise d4">
+    <div class="panel" aria-label="Exemplo de um mês fechado por um cliente">
       <div class="panel-top">
         <span class="tile"><svg class="mark" viewBox="0 0 100 100"><use href="#neMark"/></svg></span>
-        <strong>Fechamento de agosto</strong>
-        <span>Studio Meraki ME</span>
+        <strong>Agosto fechado</strong>
+        <span>exemplo de um cliente</span>
       </div>
       <div class="row">
         <span class="check"><svg><use href="#i-check"/></svg></span>
-        <div class="row-t"><b>Notas emitidas</b><small>34 notas de serviço</small></div>
-        <span class="tag ok">conciliado</span>
+        <div class="row-t"><b>Notas do mês</b><small>34 emitidas e conciliadas</small></div>
+        <span class="tag ok">7 dias antes do prazo</span>
+      </div>
+      <div class="row">
+        <span class="check"><svg><use href="#i-check"/></svg></span>
+        <div class="row-t"><b>Folha e encargos</b><small>3 colaboradores, holerites enviados</small></div>
+        <span class="tag ok">2 dias antes do prazo</span>
       </div>
       <div class="row">
         <span class="check"><svg><use href="#i-check"/></svg></span>
         <div class="row-t"><b>Impostos do mês</b><small>Guia gerada e enviada dia 12</small></div>
-        <span class="tag ok">em dia</span>
+        <span class="tag ok">8 dias antes do prazo</span>
       </div>
       <div class="row">
         <span class="check"><svg><use href="#i-check"/></svg></span>
-        <div class="row-t"><b>Folha de 3 colaboradores</b><small>Holerites e encargos prontos</small></div>
-        <span class="tag ok">fechada</span>
-      </div>
-      <div class="row">
-        <div class="row-t"><b>Pendências com você</b><small>Nada aguardando sua ação</small></div>
-        <span class="tag">0 itens</span>
+        <div class="row-t"><b>Balanço e DRE</b><small>Com resumo do resultado do mês</small></div>
+        <span class="tag ok">entregue dia 15</span>
       </div>
       <div class="panel-foot">
         <span class="num">2h13</span>
-        <small>foi o tempo que este cliente dedicou à contabilidade no mês</small>
+        <small>foi o tempo que o dono desta empresa gastou com contabilidade em agosto. O resto ficou com a gente.</small>
       </div>
+    </div>
+    <p class="panel-cap">Um mês comum aqui: nada entregue no limite, nada esperando por você.</p>
     </div>
   </div>
 </section>
@@ -511,7 +519,7 @@ footer{padding:56px 0 40px;font-size:14px;color:var(--text-3)}
     <div class="flow">
       <div class="step">
         <h3>Conversa de diagnóstico</h3>
-        <p>30 minutos para entender seu faturamento, sua operação e o que hoje está travando ou custando imposto demais.</p>
+        <p>Uma conversa franca sobre seu faturamento e sua operação já costuma revelar imposto pago à mais, prazo apertado sem necessidade ou etapa que dá para eliminar.</p>
         <span class="when">Agenda no mesmo dia</span>
       </div>
       <div class="step">
@@ -598,7 +606,8 @@ footer{padding:56px 0 40px;font-size:14px;color:var(--text-3)}
           <li><span class="check"><svg><use href="#i-check"/></svg></span>Apuração e guias mensais</li>
           <li><span class="check"><svg><use href="#i-check"/></svg></span>Emissão de notas de serviço</li>
           <li><span class="check"><svg><use href="#i-check"/></svg></span>Declarações anuais da empresa</li>
-          <li><span class="check"><svg><use href="#i-check"/></svg></span>Suporte por WhatsApp</li>
+          <li><span class="check"><svg><use href="#i-check"/></svg></span>Contador responsável nomeado</li>
+        <li><span class="check"><svg><use href="#i-check"/></svg></span>Suporte por WhatsApp</li>
         </ul>
         <a class="btn btn-ghost" href="#contato">Pedir proposta</a>
       </div>
@@ -623,7 +632,8 @@ footer{padding:56px 0 40px;font-size:14px;color:var(--text-3)}
           <li><span class="check"><svg><use href="#i-check"/></svg></span>Contas a pagar e a receber</li>
           <li><span class="check"><svg><use href="#i-check"/></svg></span>Planejamento tributário anual</li>
           <li><span class="check"><svg><use href="#i-check"/></svg></span>Reunião mensal de resultado</li>
-          <li><span class="check"><svg><use href="#i-check"/></svg></span>IR dos sócios incluso</li>
+          <li><span class="check"><svg><use href="#i-check"/></svg></span>Contador responsável nomeado</li>
+        <li><span class="check"><svg><use href="#i-check"/></svg></span>IR dos sócios incluso</li>
         </ul>
         <a class="btn btn-ghost" href="#contato">Pedir proposta</a>
       </div>
